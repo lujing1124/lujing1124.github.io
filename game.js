@@ -31,8 +31,6 @@
 
             var headX = this.snake.body[0].x * this.snake.width;
             var headY = this.snake.body[0].y * this.snake.height;
-            //console.log(headX,food.x);
-            //console.log(food);
 
             //碰壁，撞死
             if (headX < 0 || headX >= map.offsetWidth || headY < 0 || headY >= map.offsetHeight) {
@@ -47,9 +45,6 @@
                 }
             }
 
-            /*if(headX == food.x && headY == food.y){
-             alert('get');
-             }*/
         }.bind(that),speed);
     };
 
@@ -123,11 +118,6 @@
 
         }.bind(that),false);
 
-        /*document.getElementById('speed').addEventListener('onchange',function () {
-            console.log(11);
-        },false);*/
-
     }
-
     window.Game = Game;
 }());

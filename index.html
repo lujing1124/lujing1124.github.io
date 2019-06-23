@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+			#map {
+				width: 800px;
+				height: 600px;
+				background-color: #ccc;
+				position: relative;
+				}
+        </style>
+    </head>
+    <body>
+    <input type="button" id="btn" value="click">
+    <div id="map"></div>
+
+    <script>
+    	/*function eat(){
+    		console.log('ok');
+    	}*/
+    	function Change(div,btn,json){
+    		this.div = div;
+    		this.btn = btn;
+    		this.json = json;
+    	}
+
+    	Change.prototype.change=function(){
+    		var that = this;
+    		this.btn.onclick = function(event) {
+    			for(var key in that.json)
+    			that.div.style[key]= that.json[key];
+    			//console.log(key,that.json[key]);
+    		};
+    	}
+    	var json = {"width":"200px","background-color":"pink"}
+    	var div = document.getElementById('map');
+    	console.log(div);
+    	var btn = document.getElementById('btn');
+    	console.log(btn);
+    	var p = new Change(div,btn,json);
+    	p.change();
+
+    	var a = new Array(1,2,3,4);
+
+    	function Student(name,age){
+    		this.name = name;
+    		this.age = age;
+    	}
+
+    	Student.prototype = {
+    		constructor:Student,
+    		eat:function(){
+    			console.log('eat');
+    			this.play();
+    		},
+    		play:function(){
+    			console.log('play');
+    		}
+    	}
+
+    	var s = new Student('lujing',20);
+    	s.eat();
+    	console.dir(Student);
+
+    	String.prototype.myhello = function(){
+    		console.log('hello,' + this +' nice to see you');
+    	}
+
+    	var str = new String(' lujing');
+    	str.myhello();
+
+    	(function(win){
+    		var a = 100;
+    		win.num = a;
+    	})(window);
+
+    	(function(w){
+    		function Random(){
+
+    		}
+    		Random.prototype.getRandom = function(x){
+    			return Math.floor(Math.random()*x) ;
+    		}
+    		w.Random = Random;
+    		//w.r.getRandom();
+    	})(window);
+    	var r =new Random();
+    	console.log(r.getRandom(100)) ;
+
+    </script>
+    </body>
+</html>

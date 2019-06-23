@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <script type="text/javascript" src="jquery-1.12.1.js"></script>
     <script type="text/javascript" src="food.js"></script>
     <script type="text/javascript" src="snake.js"></script>
     <script type="text/javascript" src="game.js"></script>
@@ -17,25 +18,34 @@
   
 </head>
 <body>
-     <select name="" id="speed">
-        <option value="1">很慢</option>
-        <option value="2">慢</option>
-        <option value="3">中</option>
-        <option value="4">快</option>
-        <option value="5">很快</option>
-     </select>
-    <div class="map"></div>
-    <script>  
-    
-    
-    var map = document.getElementsByClassName('map')[0];
-    
-   
-    var game = new Game(map); 
-    game.init();
+     <!--<select name="" id="speed">
+        <option value="1000">很慢</option>
+        <option value="500">慢</option>
+        <option value="300">中</option>
+        <option value="200">快</option>
+        <option selected value="100">很快</option>
+     </select>-->
 
-       
-    
+     <p>tip:方向键↑→↓←控制方向</p>
+     <!--<p>tip:数字（1，2，3，4，5）键，控制蛇的速度，1最慢，5最快</p><br>-->
+    <div class="map"></div>
+    <script>
+        var speed;
+
+        var map = document.getElementsByClassName('map')[0];
+        var game = new Game(map);
+        //var food = new Food(map);
+        game.init();
+        /*$('#speed').change(function () {
+            speed =$(this).children('option:selected').val();
+            setInterval(function () {
+                console.log(111);
+            },speed);
+        });*/
+//        var a =$('#speed').children('option:selected').val()
+//        console.log(a);
+
+
     </script>
 </body>
 </html>
